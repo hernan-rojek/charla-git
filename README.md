@@ -28,7 +28,8 @@ La configuración por usuario se almacena en `/home/[usuario]/.gitconfig` o bien
 ### Configuración por proyecto
 
 Ya dentro de un proyecto, la configuración es almacenada dentro del mismo repositorio. Esta se puede encontrar en  `.git/config`. Este es el caso por defecto del subcomando `git config`, para el cual existe la opción `--local` si se desea explicitarla.
-Cabe destacar que si bien esta configuración es almacenada en el directorio ocupado por el repositorio, 
+
+Cabe destacar que si bien esta configuración es almacenada en el directorio ocupado por el repositorio, es propia de la instancia local, o sea, no se propaga a repositorios remotos.
 
 ### Ejemplo
 
@@ -41,9 +42,12 @@ dev0:codigo usuario$
 
 Interactuar con un repositorio Git en este estado de precariedad no es imposible, ya que la herramienta puede deducir los datos requeridos para registrar los cambios a partir de la configuración del sistema operativo.
 No obstante, se considera de buen gusto proveer nombre completo y dirección de correo electrónico estables, para evitar posteriormente tener que realizar modificaciones de bajo nivel al historial.
+
 El nombre puede contener caracteres no-ASCII (por ejemplo los acentuados), pero éstos no son mostrados por defecto por Git en su historial, excepto que se setee la propiedad `core.quotepath off` en la configuración.
+
 Debe tenerse en cuenta que si el proyecto es compartido con otros usuarios, éstos pueden no tener la misma configuración establecida (o no contar con el encoding adecuado), y verán los caracteres no-ASCII como códigos octales.
 Estos problemas suelen abordarse con consenso sobre la configuración a utilizar, o bien decantando voluntariamente en un nombre condescendientemente anglocéntrico, como "Jose Maria Patinio".
+
 Para nuestro usuario *usuario*, podemos establecer la configuración mínima de la siguiente manera:
 
 ```console
@@ -74,8 +78,10 @@ Git aplica la configuración a nivel sistema primero, luego la de usuario y fina
 ![El Directorio de Trabajo](directory.svg "El Directorio de Trabajo")
 
 Git no es la única herramienta de control de versión, pero sí es la única que en la actualidad es considerada estándar de facto. Cualquier faena que un profesional del software emprenda hoy en día, casi con seguridad incluye interactuar con repositorios Git. Al tratarse de una herramienta tan básica y omnipresente, entenderla desde lo fundamental es una inversión de alto retorno.
+
 El modo de uso fundamental de Git es local. Un repositorio Git lleva a cuestas toda la historia del proyecto. Esta característica es explícita en su diseño, ya que garantiza la performance necesaria para gestionar proyectos muy grandes.
-La interacción del usuario siempre es contra el repositorio local, mientras que la interacción con repositorios remotos se da siempre con el repositorio local mediante.
+
+La interacción del usuario siempre es con el repositorio local, mientras que la interacción con repositorios remotos se da siempre con el repositorio local mediante.
 Esto es, un usuario no impacta cambios en un repositorio remoto de manera directa, sino que primero tiene que lograr un repositorio local en estado coherente, para luego hacerlo congeniar con repositorios remotos.
 La rutina típica de bajarse una copia de un proyecto de un repositorio centralizado y contribuir cambios lleva implícito un workflow distribuído, por más que no lo parezca a primera vista.
 Ciertas herramientas suelen contribuir a esta confusión: muchos agentes Git integrados en IDEs unifican interacciones locales con remotas, dando la apariencia de estar interactuando directamente con el repositorio remoto. Muy posiblemente se deba a que previamente ese nicho funcional era ocupado por clientes verdaderos como los de CVS o SVN, y se haya buscado una transición lo más ergonómica posible.
@@ -109,7 +115,7 @@ fatal: Not a git repository (or any of the parent directories): .git
 dev0:recetario usuario$ 
 ```
 
-Esto se remedia facilmente, ejecutando lo siguiente:
+Esto se remedia facilmente, inicializando un repositorio:
 
 ```console
 dev0:recetario usuario$ git init
