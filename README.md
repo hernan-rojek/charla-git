@@ -71,6 +71,8 @@ Git aplica la configuración a nivel sistema primero, luego la de usuario y fina
 
 ## El repositorio local
 
+![El Directorio de Trabajo](directory.svg "El Directorio de Trabajo")
+
 Git no es la única herramienta de control de versión, pero sí es la única que en la actualidad es considerada estándar de facto. Cualquier faena que un profesional del software emprenda hoy en día, casi con seguridad incluye interactuar con repositorios Git. Al tratarse de una herramienta tan básica y omnipresente, entenderla desde lo fundamental es una inversión de alto retorno.
 El modo de uso fundamental de Git es local. Un repositorio Git lleva a cuestas toda la historia del proyecto. Esta característica es explícita en su diseño, ya que garantiza la performance necesaria para gestionar proyectos muy grandes.
 La interacción del usuario siempre es contra el repositorio local, mientras que la interacción con repositorios remotos se da siempre con el repositorio local mediante.
