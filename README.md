@@ -1,15 +1,18 @@
-# A ver si aprendés Git, querés
+# Introducción a Control de Versiones con Git
 
 ## Preliminares
 
-Antes de la existencia de los [VCS](https://es.wikipedia.org/wiki/Control_de_versiones), a 
+Antes de la existencia de los [VCS](https://es.wikipedia.org/wiki/Control_de_versiones), 
+
+### Parches
+
 
 ### El repositorio git
 
 Git es una herramienta de control de versión de operación local y
 
 
-## Configurando git por primera vez
+## Configurando Git por primera vez
 
 Git administra la configuración en tres niveles: por instalación, por usuario y por proyecto.
 Esta configuración se almacena en archivos de texto, los cuales no es necesario modificar manualmente, ya que para este fin la herramienta provee el subcomando `git config`.
