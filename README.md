@@ -75,7 +75,7 @@ Git aplica la configuración a nivel sistema primero, luego la de usuario y fina
 
 ## El repositorio local
 
-![El Directorio de Trabajo](directory.svg "El Directorio de Trabajo")
+<img align="left" width="100" height="100" src="directory.svg">
 
 Git no es la única herramienta de control de versión, pero sí es la única que en la actualidad es considerada estándar de facto. Cualquier faena que un profesional del software emprenda hoy en día, casi con seguridad incluye interactuar con repositorios Git. Al tratarse de una herramienta tan básica y omnipresente, entenderla desde lo fundamental es una inversión de alto retorno.
 
