@@ -187,6 +187,11 @@ cocinar de ambos lados en sartén antiadherente
   <img width="288" height="288" src="wd.repo.panqueques.svg">
 </p>
 El directorio actual, sin considerar el subdirectorio `.git`, almacena lo que Git denomina *Working Copy*, o copia de trabajo.
+
+El directorio actual, sin considerar el subdirectorio `.git`, almacena lo que Git denomina *Working Copy*, o copia de trabajo.
+
+El directorio actual, sin considerar el subdirectorio `git`, almacena lo que Git denomina *Working Copy*, o copia de trabajo.
+
 Esta copia es sobre la cual trabajamos, y a partir de la cual Git computa las modificaciones que debe ir acumulando el historial.
 
 Si volvemos a ejecutar el subcomando `status`, la herramienta reconoce que hay un nuevo archivo del cual no guarda seguimiento:
