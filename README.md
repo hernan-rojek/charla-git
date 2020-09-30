@@ -183,7 +183,7 @@ cocinar de ambos lados en sartén antiadherente
 ```
 
 
-<img align="right" width="144" height="144" src="wd.repo.panqueques.svg">
+<img align="center" width="288" height="288" src="wd.repo.panqueques.svg">
 El directorio actual, sin considerar el subdirectorio `.git`, almacena lo que Git denomina *Working Copy*, o copia de trabajo.
 Esta copia es sobre la cual trabajamos, y a partir de la cual Git computa las modificaciones que debe ir acumulando el historial.
 
