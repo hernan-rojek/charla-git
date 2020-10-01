@@ -39,25 +39,25 @@ Notamos que falta el jueves, lo agregamos:
   </tr>
   <tr>
     <td>
-<pre>
-domingo
-lunes
-martes
-miércoles
-viernes
-sábado
-</pre>
+      <pre>
+      domingo
+      lunes
+      martes
+      miércoles
+      viernes
+      sábado
+      </pre>
     </td>
     <td>
-<pre>
-domingo
-lunes
-martes
-miércoles
-jueves
-viernes
-sábado
-</pre>
+      <pre>
+      domingo
+      lunes
+      martes
+      miércoles
+      jueves
+      viernes
+      sábado
+      </pre>
     </td>
   </tr>
 </table>
