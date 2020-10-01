@@ -1,8 +1,14 @@
 # Introducción a Control de Versiones con Git
 
+Vamos a ver el uso de Git desde abajo, así entendemos lo que estamos haciendo en vez de memorizar recetas que aplicamos cruzando los dedos y esperando que todo salga bien.
+
 ## Preliminares
 
-Antes de la existencia de los [VCS](https://es.wikipedia.org/wiki/Control_de_versiones), 
+Antes que eso, veamos cómo hacían hace unos cuarenta años para que varias personas pudieran trabajar sobre el mismo código.
+
+A veces, almacenaban una copia en un repositorio central y ponían los archivos a ser modificados en modo *solo lectura*.
+
+Otros equipos mantenían varias copias en paralelo y se comunicaban entre sí las partes que cambiaban. Vamos a profundizar en esta estrategia, porque es relevante para comprender el funcionamiento de Git.
 
 ### Parches
 
@@ -20,7 +26,7 @@ original/
 dev0:corrector usuario$
 ```
 
-Consiste de unas listas de días, meses y estaciones. Contamos con poco tiempo para hacerlo, contamos con un módem de algunos baudios y nos ahorraríamos el tiempo que insumiría devolver el diskette por correo. Si mandamos solamente las modificaciones, podemos ahorrar mucho tiempo de conexión telefónica. Por suerte, desde hace varias décadas existen las herramientas que permiten lograrlo.
+Consiste de unas listas de días, meses y estaciones. Contamos con poco tiempo para hacerlo, pero con un módem de algunos baudios, nos ahorraríamos el tiempo que insumiría devolver el diskette por correo. Si mandamos solamente las modificaciones, podemos ahorrar mucho tiempo de conexión telefónica. Por suerte, desde hace varias décadas existen las herramientas que permiten lograrlo.
 
 Copiamos todo el árbol de directorios y hacemos las correcciones sobre la copia:
 
@@ -30,7 +36,7 @@ dev0:corrector usuario$ cd nuevo/
 dev0:nuevo usuario$ vim dias.txt
 ```
 
-Notamos que falta el jueves, lo agregamos:
+Notamos que falta un día. Lo agregamos:
 
 <table>
   <tr>
@@ -109,7 +115,7 @@ diciembre
   </tr>
 </table>
 
-Adaptamos el orden de las estaciones al hemisferio sur:
+Cambiamos el orden de las estaciones para que reflejen el del hemisferio sur:
 
 ```console
 dev0:nuevo usuario$ vim otros/estaciones.txt
@@ -139,7 +145,7 @@ otoño
   </tr>
 </table>
 
-Podemos ver las diferencias con el comando `diff`. La opción `-r` le indica al comando que tiene que funcionar recursivamente en la jerarquía de directorios:
+Podemos ver las diferencias con el comando `diff`:
 
 ```console
 dev0:nuevo usuario$ cd ..
@@ -183,14 +189,14 @@ otoño
 +primavera
 dev0:corrector usuario$
 ```
-Estas son las instrucciones necesarias para corregir el proyecto. Si bien las instrucciones son más voluminosas que el proyecto de ejemplo, podemos suponer que el caso de uso típico involucra pocas correcciones en mucho código.
+Estas son las instrucciones necesarias para corregir el proyecto.
 
-Podemos almacenarlo en un archivo, y transferirlo telefónicamente (acá hacemos un `cp`, pero imaginemos que lo transmitimos por dial-up):
+Podemos almacenarlas en un archivo (típicamente denominado *parche*, *patch* o *delta*), y transferirlas al autor:
 
 ```console
 dev0:corrector usuario$ diff -ruN original/ nuevo/ > correcciones.patch
 dev0:corrector usuario$ cp correcciones.patch ../autor/
-dev0:corrector usuario$ cd ../autor/
+dev0:corrector usuario$ 
 ```
 Nos impersonamos como el autor original:
 
@@ -217,13 +223,40 @@ dev0:autor usuario$ diff -ruN original/ ../corrector/nuevo/
 dev0:autor usuario$ 
 ```
 
+Antes de la aparición de los sistemas de control de versiones, este esquema de trabajo era común entre colaboradores ocasionales o geográficamente dispersos.
+Cada desarrollador podía almacenar, junto con su copia de trabajo, el conjunto de deltas (diferencias) que lo llevaron a su estado actual.
 
-### El repositorio git
+La estrategia de operación de Git es básicamente eso mismo pero automatizado.
 
-Git es una herramienta de control de versión de operación local y
+## El repositorio Git
 
+Git no es la única herramienta de control de versión, pero sí es la única que en la actualidad es considerada estándar de facto. Cualquier trabajo que un profesional del software emprenda hoy en día, casi con seguridad incluye interactuar con repositorios Git.
 
-## Configurando Git por primera vez
+Al tratarse de una herramienta tan básica y omnipresente, entenderla desde lo fundamental es una inversión de alto retorno.
+
+El modo de uso fundamental de Git es local. Un repositorio Git lleva a cuestas toda la historia del proyecto.
+Esta característica es explícita en su diseño, ya que garantiza la performance necesaria para gestionar proyectos muy grandes.
+
+La interacción del usuario siempre es con el repositorio local, mientras que la interacción con repositorios remotos se da siempre con el repositorio local mediante.
+Esto es, un usuario no impacta cambios en un repositorio remoto de manera directa, sino que primero tiene que lograr un repositorio local en estado coherente, para luego hacerlo congeniar con repositorios remotos.
+
+La rutina típica de bajarse una copia de un proyecto de un repositorio centralizado y contribuir cambios lleva implícito un workflow distribuído, por más que no lo parezca a primera vista.
+
+Ciertas herramientas suelen contribuir a esta confusión: muchos agentes Git integrados en IDEs unifican interacciones locales con remotas, dando la apariencia de estar interactuando directamente con el repositorio remoto.
+Muy posiblemente se deba a que previamente ese nicho funcional era ocupado por herramientas verdaderamente cliente/servidor, como CVS o SVN, y se haya buscado una transición lo más ergonómica posible.
+
+Por este y otros motivos, recomendamos fuertemente fijar los conceptos propios de Git con la herramienta oficial, que funciona en terminales de línea de comandos como Bash o PowerShell.
+Si resulta poco familiar o intimidante este tipo de entorno, es una buena oportunidad para interiorizarse un poco. Vamos a limitarnos a `git` y a comandos muy básicos, como por ejemplo:
+
+  - `more`: muestra el contenido de un archivo
+  - `ls`: lista el contenido de un directorio, si no se especifica, es del actual
+  - `tree`: lo mismo que `ls`, pero mostrando el árbol en forma jerárquica 
+  - `cd`: cambia el directorio actual
+  - `mkdir`: crea un nuevo directorio
+
+Adicionalmente, vamos a utilizar un editor de texto. En este caso usamos `vim`, pero como creemos que el masoquismo debe ser voluntario, donde usamos `vim`, se puede perfectamente usar el editor que quieran, como por ejemplo `nano`, que es un poco más amable.
+
+### Configurando Git por primera vez
 
 Git administra la configuración en tres niveles: por instalación, por usuario y por proyecto.
 Esta configuración se almacena en archivos de texto, los cuales no es necesario modificar manualmente, ya que para este fin la herramienta provee el subcomando `git config`.
@@ -286,29 +319,9 @@ Git aplica la configuración a nivel sistema primero, luego la de usuario y fina
 
 ## El repositorio local
 
-<img align="left" width="100" height="100" src="directory.svg">
+Supongamos que nos gusta cocinar y mantener nuestras recetas debidamente documentadas. Para ello, hacemos uso de un ordenador personal y procedemos a crear un directorio para nuestro proyecto de recetario.
 
-Git no es la única herramienta de control de versión, pero sí es la única que en la actualidad es considerada estándar de facto. Cualquier faena que un profesional del software emprenda hoy en día, casi con seguridad incluye interactuar con repositorios Git. Al tratarse de una herramienta tan básica y omnipresente, entenderla desde lo fundamental es una inversión de alto retorno.
-
-El modo de uso fundamental de Git es local. Un repositorio Git lleva a cuestas toda la historia del proyecto. Esta característica es explícita en su diseño, ya que garantiza la performance necesaria para gestionar proyectos muy grandes.
-
-La interacción del usuario siempre es con el repositorio local, mientras que la interacción con repositorios remotos se da siempre con el repositorio local mediante.
-Esto es, un usuario no impacta cambios en un repositorio remoto de manera directa, sino que primero tiene que lograr un repositorio local en estado coherente, para luego hacerlo congeniar con repositorios remotos.
-La rutina típica de bajarse una copia de un proyecto de un repositorio centralizado y contribuir cambios lleva implícito un workflow distribuído, por más que no lo parezca a primera vista.
-Ciertas herramientas suelen contribuir a esta confusión: muchos agentes Git integrados en IDEs unifican interacciones locales con remotas, dando la apariencia de estar interactuando directamente con el repositorio remoto. Muy posiblemente se deba a que previamente ese nicho funcional era ocupado por herramientas verdaderamente cliente/servidor, como CVS o SVN, y se haya buscado una transición lo más ergonómica posible.
-
-Por este y otros motivos, recomendamos fuertemente fijar los conceptos propios de Git con la herramienta oficial, que funciona en terminales de línea de comandos como Bash o PowerShell.
-Si resulta poco familiar o intimidante este tipo de entorno, es una buena oportunidad para interiorizarse un poco. Vamos a limitarnos a `git` y a comandos muy básicos, como por ejemplo:
-
-  - `more`: muestra el contenido de un archivo
-  - `ls`: lista el contenido de un directorio, si no se especifica, es del actual
-  - `tree`: lo mismo que `ls`, pero mostrando el árbol en forma jerárquica 
-  - `cd`: cambia el directorio actual
-  - `mkdir`: crea un nuevo directorio
-
-Adicionalmente, vamos a utilizar un editor de texto. En este caso usamos `vim`, pero como creemos que el masoquismo debe ser voluntario, donde usamos `vim`, se puede perfectamente usar el editor que quieran, como por ejemplo `nano`, que es un poco más amable.
-
-Supongamos que nos gusta cocinar y mantener nuestras recetas debidamente documentadas. Para ello, hacemos uso de un ordenador personal y procedemos a crear un directorio para nuestro proyecto de recetario. Usamos esta temática en lugar de código fuente para no andar mezclando terminologías similares y que quede bien clara la divisoria entre lo que es fuente y lo que es control de versión:
+Usamos esta temática en lugar de código fuente para no mezclar terminologías similares y que quede bien clara la divisoria entre lo que es fuente y lo que es control de versión:
 
 ```console
 dev0:codigo usuario$ mkdir recetario
@@ -335,7 +348,7 @@ Initialized empty Git repository in /home/usuario/codigo/recetario/.git/
 dev0:recetario usuario$ 
 ```
 
-Con el comando `git init`, `git` inicializa el estado del repositorio local, almacenado en un directorio llamado `.git` dentro del directorio del proyecto (por convención UNIX, los archivos y directorios cuyos nombres comienzan con `.`, son considerados ocultos).
+Con el subcomando `git init`, se inicializa el estado del repositorio local, almacenado en un directorio llamado `.git` dentro del directorio del proyecto (por convención UNIX, los archivos y directorios cuyos nombres comienzan con `.`, son considerados ocultos).
 Profundizando un poco en la estructura de ese árbol de directorios, podemos apreciar que `git` guarda sus cosas ahí adentro:
 
 
@@ -356,7 +369,7 @@ dev0:recetario usuario$ tree -a -L 2
 dev0:recetario usuario$ 
 ```
 
-Repetimos nuevamente el subcomando `git status`, y `git` nos confirma que el repositorio ya existe:
+Repetimos nuevamente el subcomando `git status`, y éste nos confirma que el repositorio ya existe:
 
 ```console
 dev0:recetario usuario$ git status
@@ -368,13 +381,16 @@ nothing to commit (create/copy files and use "git add" to track)
 dev0:recetario usuario$ 
 ```
 
+## Cambios
+
+
 Comencemos por agregar una receta. Usando el procesador de texto que más nos guste, o el que consigamos:
 
 ```console
 dev0:recetario usuario$ vim panqueques.txt
 ```
 
-Podemos redactar una receta más o menos así. No es tan importante. La gracia del control de versión es que todo está para ser modificado luego:
+Podemos redactar una receta más o menos así. No es tan importante, necesitamos un ejemplo que pueda cambiar:
 
 ```
 Panqueques (entre 9 y 12 unidades)
@@ -400,7 +416,7 @@ cocinar de ambos lados en sartén antiadherente
 El directorio actual, sin considerar el subdirectorio `.git`, almacena lo que Git denomina *Working Copy*, o copia de trabajo.
 Esta copia es sobre la cual trabajamos, y a partir de la cual Git computa las modificaciones que debe ir acumulando el historial.
 
-Si volvemos a ejecutar el subcomando `status`, la herramienta reconoce que hay un nuevo archivo del cual no guarda seguimiento:
+Si volvemos a ejecutar el subcomando `git status`, la herramienta reconoce que hay un nuevo archivo del cual no guarda seguimiento:
 
 ```console
 dev0:recetario usuario$ git status
@@ -426,7 +442,9 @@ dev0:recetario usuario$
 ```
 
 Lo que nos está diciendo con eso es que la rama en la que estamos (se tomó el atrevimiento de ponerle *master*, pero eso se puede cambiar), no tiene ningún **commit**. Por **commit** se entiende un paquete de cambios que se realizan todos juntos, de manera atómica, sobre archivos y/o directorios preexistentes en la historia. Es similar al patch o delta que vimos preliminarmente, solo que además referencia a un commit anterior.
+
 De esas cadenas de commits se deduce ese concepto de **branch** o **rama**, central en casi todo VCS como mecanismo para *aislar cambios*.
+
 Cada commit es un fotograma en la historia de la fuente, y Git nos permite posicionarnos en cualquier punto de esta historia, mientras cuente con un commit.
 Mediante el subcomando `git add` ponemos a Git al corriente de que existe el archivo `panqueques.txt` agregándolo al índice del repositorio:
 
@@ -445,7 +463,7 @@ Changes to be committed:
 dev0:recetario usuario$ 
 ```
 
-  El índice (**index**) es una estructura de datos que determina en qué difiere la copia de trabajo con el fotograma utilizado como base. Agregar los cambios al índice de seguimiento se lo suele denominar **to stage** (algo así como "preparar", o "poner en escena"), ya que son los cambios que Git compone preliminarmente como nuevo paquete para crear un nuevo commit.
+El índice (**index**) es una estructura de datos que determina en qué difiere la copia de trabajo con el fotograma utilizado como base. Agregar los cambios al índice de seguimiento se lo suele denominar **to stage** (algo así como "preparar", o "poner en escena"), ya que son los cambios que Git compone preliminarmente como nuevo paquete para crear un nuevo commit.
 Como se puede apreciar ejecutando el subcomando `git log`, agregar un cambio al *stage* del repositorio, no altera la historia:
 
 ```console
