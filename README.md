@@ -228,7 +228,7 @@ Cada desarrollador podía almacenar, junto con su copia de trabajo, el conjunto 
 
 La estrategia de operación de Git es básicamente eso mismo pero automatizado.
 
-## El repositorio Git
+## Git
 
 Git no es la única herramienta de control de versión, pero sí es la única que en la actualidad es considerada estándar de facto. Cualquier trabajo que un profesional del software emprenda hoy en día, casi con seguridad incluye interactuar con repositorios Git.
 
@@ -317,7 +317,7 @@ dev0:codigo usuario$
 
 Git aplica la configuración a nivel sistema primero, luego la de usuario y finalmente la del proyecto, permitiendo de esta manera que el usuario tenga oportunidad de redefinir ciertas propiedades en proyectos específicos, como por ejemplo, un correo electrónico laboral en proyectos laborales y otro personal para el resto.
 
-## El repositorio local
+## El repositorio
 
 Supongamos que nos gusta cocinar y mantener nuestras recetas debidamente documentadas. Para ello, hacemos uso de un ordenador personal y procedemos a crear un directorio para nuestro proyecto de recetario.
 
@@ -413,7 +413,7 @@ cocinar de ambos lados en sartén antiadherente
   <img width="288" height="288" src="wd.repo.panqueques.svg">
 </p>
 
-El directorio actual, sin considerar el subdirectorio `.git`, almacena lo que Git denomina *Working Copy*, o copia de trabajo.
+El directorio actual, sin considerar el subdirectorio `.git`, almacena lo que Git denomina *working copy*, o copia de trabajo.
 Esta copia es sobre la cual trabajamos, y a partir de la cual Git computa las modificaciones que debe ir acumulando el historial.
 
 Si volvemos a ejecutar el subcomando `git status`, la herramienta reconoce que hay un nuevo archivo del cual no guarda seguimiento:
@@ -445,7 +445,7 @@ Lo que nos está diciendo con eso es que la rama en la que estamos (se tomó el 
 
 De esas cadenas de commits se deduce ese concepto de **rama** (*branch*), central en casi todo VCS como mecanismo para **aislar cambios**.
 
-Cada commit es un fotograma en la historia de la fuente, y Git nos permite posicionarnos en cualquier punto de esta historia, mientras cuente con un commit.
+Cada commit es un fotograma en la historia de la fuente, y Git nos permite posicionarnos en cualquier punto de esta historia, mientras le indiquemos cual.
 Mediante el subcomando `git add` ponemos a Git al corriente de que existe el archivo `panqueques.txt` agregándolo al índice del repositorio:
 
 ```console
@@ -540,8 +540,7 @@ batir el huevo y la leche
 incorporar la harina
 incorporar el azúcar o la sal
 incorporar la manteca derretida
-cocinar de ambos lados en sartén antiadherente
-
+cocinar de ambos lados en sartén antiadherente<br />
       </pre>
     </td>
     <td>
