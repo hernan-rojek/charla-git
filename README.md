@@ -560,7 +560,7 @@ incorporar la harina
 incorporar el azúcar o la sal
 incorporar la manteca derretida
 cocinar de ambos lados en sartén antiadherente
-<b>dejar el panqueque enfriar en una grilla</b>
+<b>dejar el panqueque reposando en una grilla</b>
       </pre>
     </td>
   </tr>
