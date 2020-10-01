@@ -441,9 +441,9 @@ fatal: your current branch 'master' does not have any commits yet
 dev0:recetario usuario$ 
 ```
 
-Lo que nos está diciendo con eso es que la rama en la que estamos (se tomó el atrevimiento de ponerle *master*, pero eso se puede cambiar), no tiene ningún **commit**. Por **commit** se entiende un paquete de cambios que se realizan todos juntos, de manera atómica, sobre archivos y/o directorios preexistentes en la historia. Es similar al patch o delta que vimos preliminarmente, solo que además referencia a un commit anterior.
+Lo que nos está diciendo con eso es que la rama en la que estamos (se tomó el atrevimiento de ponerle *master*, pero eso se puede cambiar), no tiene ningún *commit*. Por *commit* se entiende un paquete de cambios que se realizan todos juntos, de manera atómica, sobre archivos y/o directorios preexistentes en la historia. Es similar al patch o delta que vimos preliminarmente, solo que además referencia a un commit anterior.
 
-De esas cadenas de commits se deduce ese concepto de **branch** o **rama**, central en casi todo VCS como mecanismo para *aislar cambios*.
+De esas cadenas de commits se deduce ese concepto de **rama** (*branch*), central en casi todo VCS como mecanismo para **aislar cambios**.
 
 Cada commit es un fotograma en la historia de la fuente, y Git nos permite posicionarnos en cualquier punto de esta historia, mientras cuente con un commit.
 Mediante el subcomando `git add` ponemos a Git al corriente de que existe el archivo `panqueques.txt` agregándolo al índice del repositorio:
@@ -463,7 +463,8 @@ Changes to be committed:
 dev0:recetario usuario$ 
 ```
 
-El índice (**index**) es una estructura de datos que determina en qué difiere la copia de trabajo con el fotograma utilizado como base. Agregar los cambios al índice de seguimiento se lo suele denominar **to stage** (algo así como "preparar", o "poner en escena"), ya que son los cambios que Git compone preliminarmente como nuevo paquete para crear un nuevo commit.
+El índice (*index*) es una estructura de datos que determina en qué difiere la copia de trabajo con el fotograma utilizado como base. Agregar los cambios al índice de seguimiento se lo suele denominar *to stage* (algo así como "preparar", o "poner en escena"), ya que son los cambios que Git compone preliminarmente como nuevo paquete para crear un nuevo commit.
+
 Como se puede apreciar ejecutando el subcomando `git log`, agregar un cambio al *stage* del repositorio, no altera la historia:
 
 ```console
@@ -482,7 +483,7 @@ dev0:recetario usuario$ git commit -m "Nueva receta de panqueques"
 dev0:recetario usuario$ 
 ```
 
-Este subcomando requiere un comentario entendible por seres humanos para poder facilitar la comprensión de la sucesión de cambios en el log del branch actual.
+Este subcomando requiere un comentario en lenguaje de ser humano para poder facilitar la comprensión de la sucesión de cambios en el log del branch actual.
 Luego de confirmar los últimos cambios, podemos ver que el índice no registra diferencias con respecto al último commit:
 
 ```console
@@ -505,7 +506,10 @@ dev0:recetario usuario$
 dev0:recetario usuario$ 
 ```
 
-Esos números con letras que aparecen en la primera línea es un número expresado en base hexadecimal (con 16 dígitos posibles), y es un código de dispersión ("hash code") derivado del contenido de los cambios y del código del commit anterior. Son números tan grandes, que es virtualmente imposible encontrar dos commits diferentes con el mismo código de dispersión. No hace falta entrar tanto en detalle sobre estos códigos, ya que solamente necesitamos saber que son técnicamente únicos y permiten que dos colaboradores creen commits independientemente sin riesgo de que al intercambiarlos se dé una colisión.
+Esos números con letras que aparecen en la primera línea es un número expresado en base hexadecimal, y se trata de un código de dispersión (*hash code*) derivado del contenido de los cambios y del código del commit anterior. Son números tan grandes, que es virtualmente imposible encontrar dos commits diferentes con el mismo código de dispersión.
+
+No hace falta entrar tanto en detalle sobre estos códigos, solamente necesitamos saber que son técnicamente únicos y permiten que dos colaboradores creen commits independientemente sin riesgo de que al intercambiarlos entren en una colisión.
+
 Vamos a ilustrar una secuencia de cambios,
 
 ```console
@@ -514,7 +518,14 @@ dev0:recetario usuario$ vim panqueques.txt
 
 agregando una línea nueva en el archivo:
 
-```
+<table>
+  <tr>
+    <th>original</th>
+    <th>nuevo</th>
+  </tr>
+  <tr>
+    <td>
+      <pre>
 Panqueques (entre 9 y 12 unidades)
 
 Ingredientes:
@@ -530,7 +541,36 @@ incorporar la harina
 incorporar el azúcar o la sal
 incorporar la manteca derretida
 cocinar de ambos lados en sartén antiadherente
-dejar enfriar en una grilla hasta que elimine el vapor
+
+      </pre>
+    </td>
+    <td>
+      <pre>
+Panqueques (entre 9 y 12 unidades)
+
+Ingredientes:
+huevo, 1 unidad
+leche, 1 taza
+harina, 1 taza
+azúcar o sal, a gusto
+manteca derretida, una cucharada
+
+Preparación:
+batir el huevo y la leche
+incorporar la harina
+incorporar el azúcar o la sal
+incorporar la manteca derretida
+cocinar de ambos lados en sartén antiadherente
+<b>dejar enfriar en una grilla hasta que elimine el vapor</b>
+      </pre>
+    </td>
+  </tr>
+</table>
+
+
+
+
+```
 ```
 
 Vemos nuevamente que Git detecta que cambiamos el contenido del directorio de trabajo:
