@@ -598,7 +598,7 @@ dev0:recetario usuario$
 
 La opción `--no-pager` evita que el subcomando ejecute en modo pantalla completa, simplemente imprimiendo en la salida estándar. Si necesitamos algún detalle de esa salida para copiarlo textualmente en un comando subsiguiente, nos puede resultar útil tenerlo en la pantalla. Imaginen tener que memorizar esos hashes.
 
-El subcomando `git diff` es similar al comando `diff` que vimos en la sección [Preliminares](#Preliminares).
+El subcomando `git diff` es similar al comando `diff` que vimos en la sección [Preliminares](#preliminares).
 
 
 
