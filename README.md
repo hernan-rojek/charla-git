@@ -9,7 +9,7 @@ Antes de la existencia de los [VCS](https://es.wikipedia.org/wiki/Control_de_ver
 Supongamos que recibimos un diskette por correo con un proyecto para corregir. El proyecto se ve más o menos así: 
 
 ```console
-dev0:codigo usuario$ tree -a -L 2 original/
+dev0:corrector usuario$ tree -a -L 2 original/
 original/
 ├── dias.txt
 ├── meses.txt
@@ -17,7 +17,7 @@ original/
     └── estaciones.txt
 
 1 directory, 3 files
-dev0:codigo usuario$
+dev0:corrector usuario$
 ```
 
 Consiste de unas listas de días, meses y estaciones. Contamos con poco tiempo para hacerlo, contamos con un módem de algunos baudios y nos ahorraríamos el tiempo que insumiría devolver el diskette por correo. Si mandamos solamente las modificaciones, podemos ahorrar mucho tiempo de conexión telefónica. Por suerte, desde hace varias décadas existen las herramientas que permiten lograrlo.
@@ -25,8 +25,8 @@ Consiste de unas listas de días, meses y estaciones. Contamos con poco tiempo p
 Copiamos todo el árbol de directorios y hacemos las correcciones sobre la copia:
 
 ```console
-dev0:codigo usuario$ cp -r original/ nuevo
-dev0:codigo usuario$ cd nuevo/
+dev0:corrector usuario$ cp -r original/ nuevo
+dev0:corrector usuario$ cd nuevo/
 dev0:nuevo usuario$ vim dias.txt
 ```
 
@@ -112,7 +112,7 @@ diciembre
 Adaptamos el orden de las estaciones al hemisferio sur:
 
 ```console
-dev0:codigo usuario$ vim otros/estaciones.txt
+dev0:nuevo usuario$ vim otros/estaciones.txt
 ```
 <table>
   <tr>
@@ -139,6 +139,83 @@ otoño
   </tr>
 </table>
 
+Podemos ver las diferencias con el comando `diff`. La opción `-r` le indica al comando que tiene que funcionar recursivamente en la jerarquía de directorios:
+
+```console
+dev0:nuevo usuario$ cd ..
+dev0:corrector usuario$ diff -ruN original/ nuevo/
+diff -ruN original/dias.txt nuevo/dias.txt
+--- original/dias.txt   2020-10-01 15:51:09.819739706 -0300
++++ nuevo/dias.txt      2020-10-01 15:51:42.380478647 -0300
+@@ -2,5 +2,6 @@
+lunes
+martes
+miércoles
++jueves
+viernes
+sábado
+diff -ruN original/meses.txt nuevo/meses.txt
+--- original/meses.txt  2020-10-01 15:51:09.819739706 -0300
++++ nuevo/meses.txt     2020-10-01 15:51:55.260770956 -0300
+@@ -1,11 +1,11 @@
+enero
+-ferbero
++febrero
+marzo
+abril
+mayo
++junio
+julio
+agosto
+-junio
+septiembre
+octubre
+noviembre
+diff -ruN original/otros/estaciones.txt nuevo/otros/estaciones.txt
+--- original/otros/estaciones.txt       2020-10-01 15:51:09.819739706 -0300
++++ nuevo/otros/estaciones.txt  2020-10-01 15:52:05.661006981 -0300
+@@ -1,4 +1,4 @@
+-invierno
+-primavera
+verano
+otoño
++invierno
++primavera
+dev0:corrector usuario$
+```
+Estas son las instrucciones necesarias para corregir el proyecto. Si bien las instrucciones son más voluminosas que el proyecto de ejemplo, podemos suponer que el caso de uso típico involucra pocas correcciones en mucho código.
+
+Podemos almacenarlo en un archivo, y transferirlo telefónicamente (acá hacemos un `cp`, pero imaginemos que lo transmitimos por dial-up):
+
+```console
+dev0:corrector usuario$ diff -ruN original/ nuevo/ > correcciones.patch
+dev0:corrector usuario$ cp correcciones.patch ../autor/
+dev0:corrector usuario$ cd ../autor/
+```
+Nos impersonamos como el autor original:
+
+```console
+dev0:corrector usuario$ cd ../autor/
+dev0:autor usuario$ ls
+correcciones.patch original
+dev0:autor usuario$ 
+```
+Y aplicamos las correcciones de la siguiente manera:
+
+```console
+dev0:autor usuario$ patch -p0 < correcciones.patch
+patching file original/dias.txt
+patching file original/meses.txt
+patching file original/otros/estaciones.txt
+dev0:autor usuario$ 
+```
+
+Podemos verificar que las versiones del autor y del corrector no tienen diferencias:
+
+```console
+dev0:autor usuario$ diff -ruN original/ ../corrector/nuevo/
+dev0:autor usuario$ 
+```
 
 
 ### El repositorio git
