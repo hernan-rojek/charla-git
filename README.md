@@ -566,12 +566,6 @@ cocinar de ambos lados en sartén antiadherente
   </tr>
 </table>
 
-
-
-
-```
-```
-
 Vemos nuevamente que Git detecta que cambiamos el contenido del directorio de trabajo:
 
 ```console
@@ -586,6 +580,30 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 dev0:recetario usuario$ 
 ```
+
+Si olvidamos cuáles eran estos cambios, podemos invocar el subcomando `git diff`:
+
+```console
+dev0:recetario usuario$ git --no-pager diff
+diff --git a/panqueques.txt b/panqueques.txt
+index 8be4f7c..e077bcc 100644
+--- a/panqueques.txt
++++ b/panqueques.txt
+@@ -14,3 +14,4 @@ incorporar el azúcar o la sal
+ incorporar la manteca derretida
+ cocinar de ambos lados en sartén antiadherente
+<span style="color: green;">+dejar el panqueque reposando en una grilla</span>
+dev0:recetario usuario$ 
+```
+
+La opción `--no-pager` evita que el subcomando ejecute en modo pantalla completa, simplemente imprimiendo en la salida estándar. Si necesitamos algún detalle de esa salida para copiarlo textualmente en un comando subsiguiente, nos puede resultar útil tenerlo en la pantalla. Imaginen tener que memorizar esos hashes horribles.
+
+El subcomando `git diff` es similar al comando `diff` que vimos en la sección [Preliminares](Preliminares)
+
+
+
+
+
 
 Agregamos el archivo, y ahora reconoce los cambios para ser commiteados:
 
@@ -627,7 +645,24 @@ Date:   Mon Sep 28 16:29:42 2020 -0300
 dev0:recetario usuario$ 
 ```
 
-Con esta nutrida historia de cambios ya podemos demostrar las posibilidades que habilita contar con control de versión.
+Con esta nutrida historia de cambios ya podemos demostrar algunas de las posibilidades que habilita contar con control de versión.
+
+Por ejemplo, podemos comparar el estado actual con el commit anterior:
+
+```console
+dev0:recetario usuario$ git --no-pager diff 0f2d91b
+diff --git a/panqueques.txt b/panqueques.txt
+index 8b134f1..8be4f7c 100644
+--- a/panqueques.txt
++++ b/panqueques.txt
+@@ -13,3 +13,4 @@ incorporar la harina
+ incorporar el azúcar o la sal
+ incorporar la manteca derretida
+ cocinar de ambos lados en sartén antiadherente
++dejar el panqueque reposando en una grilla
+
+```
+
 El subcomando `git checkout` cambia el directorio de trabajo para que refleje los contenidos al momento del commit pasado como parámetro.
 
 ```console
@@ -648,17 +683,17 @@ dev0:recetario usuario$
 ```
 
 No es necesario pasar los 40 caracteres de código hash al comando. Git interpreta prefijos no ambiguos, de al menos cuatro caracteres.
+
 El comando anterior podría haberse escrito: `git checkout 0f2d`.
 
 El nuevo contenido del directorio de trabajo refleja el del momento de aplicación de ese commit, pero Git advierte estar en estado de *detached HEAD*.
 
 `HEAD` es una referencia que indica el punto de partida del directorio de trabajo. Normalmente refiere simbólicamente a `refs/heads/master`, o sea, *el último commit del branch master*. 
 
-Al ejecutar `git checkout 0f2d`, Git computa el contenido del código fuente, lo reemplaza y reapunta la referencia `HEAD` a ese commit. Esta advertencia es relevante porque el punto de partida referenciado por `HEAD` deja de ser móvil, y los commits adicionales que se agreguen no pueden ser trackeados.
+Al ejecutar `git checkout 0f2d`, Git computa el contenido del código fuente, lo reemplaza y reapunta la referencia `HEAD` a ese commit.
+Esta advertencia es relevante porque el punto de partida referenciado por `HEAD` deja de ser móvil, y los commits adicionales que se agreguen no pueden ser trackeados.
 
 Posicionar el `HEAD` en un commit específico es útil para crear una rama a partir de ese punto.
-
-
 
 ```console
 dev0:recetario usuario$ 
