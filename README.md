@@ -38,7 +38,7 @@ Notamos que falta el jueves, lo agregamos:
     <th>nuevo</th>
   </tr>
   <tr>
-    <td>
+    <td style="vertical-align: top;" >
       <pre>
 domingo
 lunes
@@ -48,7 +48,7 @@ viernes
 sábado
       </pre>
     </td>
-    <td>
+    <td style="vertical-align: top;" >
       <pre>
 domingo
 lunes
