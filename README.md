@@ -72,7 +72,7 @@ dev0:nuevo usuario$ vim meses.txt
     <th>nuevo</th>
   </tr>
   <tr>
-    <td>
+    <td style="color: red;" >
       <pre>
 enero
 ferbero
@@ -91,11 +91,11 @@ diciembre
     <td>
       <pre>
 enero
-febrero
+<b>febrero</b>
 marzo
 abril
 mayo
-junio
+<b>junio</b>
 julio
 agosto
 septiembre
