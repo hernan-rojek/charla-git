@@ -496,7 +496,7 @@ dev0:recetario usuario$
 Estos cambios quedaron registrados en el historial:
 
 ```console
-dev0:recetario usuario$ git log
+dev0:recetario usuario$ git --no-pager log
 commit 0f2d91b99ba534624e6c7d007bf415bc3b2544e5
 Author: Usuario <usuario@example.com>
 Date:   Mon Sep 28 16:29:42 2020 -0300
@@ -505,6 +505,7 @@ Date:   Mon Sep 28 16:29:42 2020 -0300
 dev0:recetario usuario$ 
 dev0:recetario usuario$ 
 ```
+La opción `--no-pager` evita que el subcomando ejecute en modo pantalla completa, simplemente imprimiendo en la salida estándar. Si necesitamos algún detalle de esa salida para copiarlo textualmente en un comando subsiguiente, nos puede resultar útil tenerlo en la pantalla. Imaginen tener que memorizar esos hashes.
 
 Esos números con letras que aparecen en la primera línea es un número expresado en base hexadecimal, y se trata de un código de dispersión (*hash code*) derivado del contenido de los cambios y del código del commit anterior. Son números tan grandes, que es virtualmente imposible encontrar dos commits diferentes con el mismo código de dispersión.
 
@@ -596,14 +597,8 @@ index 8be4f7c..e077bcc 100644
 dev0:recetario usuario$ 
 ```
 
-La opción `--no-pager` evita que el subcomando ejecute en modo pantalla completa, simplemente imprimiendo en la salida estándar. Si necesitamos algún detalle de esa salida para copiarlo textualmente en un comando subsiguiente, nos puede resultar útil tenerlo en la pantalla. Imaginen tener que memorizar esos hashes.
-
 El subcomando `git diff` es similar al comando `diff` que vimos en la sección [Preliminares](#preliminares).
-
-
-
-
-
+Sin parámetros, muestra la diferencia entre el directorio de trabajo y lo último commiteado al historial.
 
 Agregamos el archivo, y ahora reconoce los cambios para ser commiteados:
 
@@ -630,7 +625,7 @@ dev0:recetario usuario$
 Pedir nuevamente el `log` (bitácora de la rama actual) nos muestra la cadena de commits, comenzando desde el más reciente:
 
 ```console
-dev0:recetario usuario$ git log
+dev0:recetario usuario$ git --no-pager log
 commit 398e59280c1bd44a6a50a6571bfa1c00974580f3
 Author: Usuario <usuario@example.com>
 Date:   Mon Sep 28 16:54:56 2020 -0300
