@@ -44,6 +44,7 @@ domingo
 lunes
 martes
 miércoles
+
 viernes
 sábado
       </pre>
@@ -54,7 +55,7 @@ domingo
 lunes
 martes
 miércoles
-jueves
+<b>jueves</b>
 viernes
 sábado
       </pre>
