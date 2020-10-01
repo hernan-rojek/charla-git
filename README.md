@@ -40,27 +40,27 @@ Notamos que falta el jueves, lo agregamos:
   <tr>
     <td>
 
-      ```
-      domingo
-      lunes
-      martes
-      miércoles
-      viernes
-      sábado
-      ```
+```
+domingo
+lunes
+martes
+miércoles
+viernes
+sábado
+```
 
     </td>
     <td>
 
-      ```
-      domingo
-      lunes
-      martes
-      miércoles
-      jueves
-      viernes
-      sábado
-      ```
+```
+domingo
+lunes
+martes
+miércoles
+jueves
+viernes
+sábado
+```
 
     </td>
   </tr>
