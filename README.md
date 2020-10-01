@@ -43,8 +43,7 @@ Notamos que falta el jueves, lo agregamos:
 domingo
 lunes
 martes
-miércoles
-<br />
+miércoles<br />
 viernes
 sábado
       </pre>
