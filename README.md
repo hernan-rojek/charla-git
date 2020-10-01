@@ -6,6 +6,59 @@ Antes de la existencia de los [VCS](https://es.wikipedia.org/wiki/Control_de_ver
 
 ### Parches
 
+Supongamos que recibimos un diskette por correo con un proyecto para corregir. El proyecto se ve más o menos así: 
+
+```console
+dev0:codigo usuario$ tree -a -L 2 original/
+original/
+├── dias.txt
+├── meses.txt
+└── otros
+    └── estaciones.txt
+
+1 directory, 3 files
+dev0:codigo usuario$
+```
+
+Consiste de unas listas de días, meses y estaciones. Contamos con poco tiempo para hacerlo, contamos con un módem de algunos baudios y nos ahorraríamos el tiempo que insumiría devolver el diskette por correo. Si mandamos solamente las modificaciones, podemos ahorrar mucho tiempo de conexión telefónica. Por suerte, desde hace varias décadas existen las herramientas que permiten lograrlo.
+
+Copiamos todo el árbol de directorios:
+
+```console
+dev0:codigo usuario$ cp -r original/ nuevo
+dev0:codigo usuario$ cd nuevo/
+dev0:codigo usuario$ vim dias.txt
+```
+
+Notamos que falta un día, lo agregamos:
+
+```
+domingo
+lunes
+martes
+miércoles
+```
+```
+jueves
+```
+```
+viernes
+sábado
+```
+
+
+
+```
+a
+```
+
+```console
+dev0:codigo usuario$ 
+dev0:codigo usuario$ 
+dev0:codigo usuario$ 
+```
+
+
 
 ### El repositorio git
 
@@ -84,7 +137,8 @@ El modo de uso fundamental de Git es local. Un repositorio Git lleva a cuestas t
 La interacción del usuario siempre es con el repositorio local, mientras que la interacción con repositorios remotos se da siempre con el repositorio local mediante.
 Esto es, un usuario no impacta cambios en un repositorio remoto de manera directa, sino que primero tiene que lograr un repositorio local en estado coherente, para luego hacerlo congeniar con repositorios remotos.
 La rutina típica de bajarse una copia de un proyecto de un repositorio centralizado y contribuir cambios lleva implícito un workflow distribuído, por más que no lo parezca a primera vista.
-Ciertas herramientas suelen contribuir a esta confusión: muchos agentes Git integrados en IDEs unifican interacciones locales con remotas, dando la apariencia de estar interactuando directamente con el repositorio remoto. Muy posiblemente se deba a que previamente ese nicho funcional era ocupado por clientes verdaderos como los de CVS o SVN, y se haya buscado una transición lo más ergonómica posible.
+Ciertas herramientas suelen contribuir a esta confusión: muchos agentes Git integrados en IDEs unifican interacciones locales con remotas, dando la apariencia de estar interactuando directamente con el repositorio remoto. Muy posiblemente se deba a que previamente ese nicho funcional era ocupado por herramientas verdaderamente cliente/servidor, como CVS o SVN, y se haya buscado una transición lo más ergonómica posible.
+
 Por este y otros motivos, recomendamos fuertemente fijar los conceptos propios de Git con la herramienta oficial, que funciona en terminales de línea de comandos como Bash o PowerShell.
 Si resulta poco familiar o intimidante este tipo de entorno, es una buena oportunidad para interiorizarse un poco. Vamos a limitarnos a `git` y a comandos muy básicos, como por ejemplo:
 
@@ -381,6 +435,15 @@ dev0:recetario usuario$
 No es necesario pasar los 40 caracteres de código hash al comando. Git interpreta prefijos no ambiguos, de al menos cuatro caracteres.
 El comando anterior podría haberse escrito: `git checkout 0f2d`.
 
+El nuevo contenido del directorio de trabajo refleja el del momento de aplicación de ese commit, pero Git advierte estar en estado de *detached HEAD*.
+
+`HEAD` es una referencia que indica el punto de partida del directorio de trabajo. Normalmente refiere simbólicamente a `refs/heads/master`, o sea, *el último commit del branch master*. 
+
+Al ejecutar `git checkout 0f2d`, Git computa el contenido del código fuente, lo reemplaza y reapunta la referencia `HEAD` a ese commit. Esta advertencia es relevante porque el punto de partida referenciado por `HEAD` deja de ser móvil, y los commits adicionales que se agreguen no pueden ser trackeados.
+
+Posicionar el `HEAD` en un commit específico es útil para crear una rama a partir de ese punto.
+
+
 
 ```console
 dev0:recetario usuario$ 
@@ -389,7 +452,6 @@ dev0:recetario usuario$
 ```
 
 ```console
-dev0:recetario usuario$ 
 dev0:recetario usuario$ 
 dev0:recetario usuario$ 
 ```
