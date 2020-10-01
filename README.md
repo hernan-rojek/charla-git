@@ -30,7 +30,16 @@ dev0:codigo usuario$ cd nuevo/
 dev0:nuevo usuario$ vim dias.txt
 ```
 
-Notamos que falta un día, lo agregamos:
+```
+domingo
+lunes
+martes
+miércoles
+viernes
+sábado
+```
+
+Notamos que falta el jueves, lo agregamos:
 
 ```
 domingo
@@ -46,17 +55,31 @@ sábado
 dev0:nuevo usuario$ vim meses.txt
 ```
 
-```diff
+```
 enero
-- ferbero
-+ febrero
+ferbero
 marzo
 abril
 mayo
-+ junio
 julio
 agosto
-- junio
+junio
+septiembre
+octubre
+noviembre
+diciembre
+```
+Hacemos las correcciones:
+
+```
+enero
+febrero
+marzo
+abril
+mayo
+junio
+julio
+agosto
 septiembre
 octubre
 noviembre
@@ -68,7 +91,36 @@ dev0:codigo usuario$
 dev0:codigo usuario$ 
 dev0:codigo usuario$ 
 ```
+<table>
+<tr>
+<th>Json 1</th>
+<th>Markdown</th>
+</tr>
+<tr>
+<td>
+<pre>
+{
+  "id": 1,
+  "username": "joe",
+  "email": "joe@example.com",
+  "order_id": "3544fc0"
+}
+</pre>
+</td>
+<td>
 
+```json
+{
+  "id": 5,
+  "username": "mary",
+  "email": "mary@example.com",
+  "order_id": "f7177da"
+}
+```
+
+</td>
+</tr>
+</table>
 
 
 ### El repositorio git
