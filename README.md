@@ -37,11 +37,7 @@ domingo
 lunes
 martes
 miércoles
-```
-```
-jueves
-```
-```
+`*`jueves`*`
 viernes
 sábado
 ```
