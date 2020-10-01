@@ -62,6 +62,8 @@ sábado
   </tr>
 </table>
 
+Realizamos las correcciones sobre los meses:
+
 ```console
 dev0:nuevo usuario$ vim meses.txt
 ```
@@ -107,11 +109,36 @@ diciembre
   </tr>
 </table>
 
+Adaptamos el orden de las estaciones al hemisferio sur:
+
 ```console
-dev0:codigo usuario$ 
-dev0:codigo usuario$ 
-dev0:codigo usuario$ 
+dev0:codigo usuario$ vim otros/estaciones.txt
 ```
+<table>
+  <tr>
+    <th>original</th>
+    <th>nuevo</th>
+  </tr>
+  <tr>
+    <td>
+      <pre>
+<b>invierno</b>
+<b>primavera</b>
+verano
+otoño
+      </pre>
+    </td>
+    <td>
+      <pre>
+verano
+otoño
+<b>invierno</b>
+<b>primavera</b>
+      </pre>
+    </td>
+  </tr>
+</table>
+
 
 
 ### El repositorio git
