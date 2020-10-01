@@ -592,13 +592,13 @@ index 8be4f7c..e077bcc 100644
 @@ -14,3 +14,4 @@ incorporar el azúcar o la sal
  incorporar la manteca derretida
  cocinar de ambos lados en sartén antiadherente
-<span style="color: green;">+dejar el panqueque reposando en una grilla</span>
++dejar el panqueque reposando en una grilla
 dev0:recetario usuario$ 
 ```
 
-La opción `--no-pager` evita que el subcomando ejecute en modo pantalla completa, simplemente imprimiendo en la salida estándar. Si necesitamos algún detalle de esa salida para copiarlo textualmente en un comando subsiguiente, nos puede resultar útil tenerlo en la pantalla. Imaginen tener que memorizar esos hashes horribles.
+La opción `--no-pager` evita que el subcomando ejecute en modo pantalla completa, simplemente imprimiendo en la salida estándar. Si necesitamos algún detalle de esa salida para copiarlo textualmente en un comando subsiguiente, nos puede resultar útil tenerlo en la pantalla. Imaginen tener que memorizar esos hashes.
 
-El subcomando `git diff` es similar al comando `diff` que vimos en la sección [Preliminares](Preliminares)
+El subcomando `git diff` es similar al comando `diff` que vimos en la sección [Preliminares](#Preliminares).
 
 
 
