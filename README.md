@@ -38,7 +38,7 @@ Notamos que falta el jueves, lo agregamos:
     <th>nuevo</th>
   </tr>
   <tr>
-    <td style="vertical-align: top;" >
+    <td>
       <pre>
 domingo
 lunes
@@ -48,7 +48,7 @@ viernes
 sábado
       </pre>
     </td>
-    <td style="vertical-align: top;" >
+    <td>
       <pre>
 domingo
 lunes
@@ -66,7 +66,14 @@ sábado
 dev0:nuevo usuario$ vim meses.txt
 ```
 
-```
+<table>
+  <tr>
+    <th>original</th>
+    <th>nuevo</th>
+  </tr>
+  <tr>
+    <td>
+      <pre>
 enero
 ferbero
 marzo
@@ -79,10 +86,10 @@ septiembre
 octubre
 noviembre
 diciembre
-```
-Hacemos las correcciones:
-
-```
+      </pre>
+    </td>
+    <td>
+      <pre>
 enero
 febrero
 marzo
@@ -95,7 +102,10 @@ septiembre
 octubre
 noviembre
 diciembre
-```
+      </pre>
+    </td>
+  </tr>
+</table>
 
 ```console
 dev0:codigo usuario$ 
