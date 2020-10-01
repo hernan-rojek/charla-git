@@ -22,30 +22,45 @@ dev0:codigo usuario$
 
 Consiste de unas listas de días, meses y estaciones. Contamos con poco tiempo para hacerlo, contamos con un módem de algunos baudios y nos ahorraríamos el tiempo que insumiría devolver el diskette por correo. Si mandamos solamente las modificaciones, podemos ahorrar mucho tiempo de conexión telefónica. Por suerte, desde hace varias décadas existen las herramientas que permiten lograrlo.
 
-Copiamos todo el árbol de directorios:
+Copiamos todo el árbol de directorios y hacemos las correcciones sobre la copia:
 
 ```console
 dev0:codigo usuario$ cp -r original/ nuevo
 dev0:codigo usuario$ cd nuevo/
-dev0:codigo usuario$ vim dias.txt
+dev0:nuevo usuario$ vim dias.txt
 ```
 
 Notamos que falta un día, lo agregamos:
 
-```diff
+```
 domingo
 lunes
 martes
 miércoles
-+ jueves
+jueves
 viernes
 sábado
 ```
 
-
-
+```console
+dev0:nuevo usuario$ vim meses.txt
 ```
-a
+
+```diff
+enero
+- ferbero
++ febrero
+marzo
+abril
+mayo
++ junio
+julio
+agosto
+- junio
+septiembre
+octubre
+noviembre
+diciembre
 ```
 
 ```console
