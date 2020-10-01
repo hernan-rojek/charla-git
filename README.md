@@ -30,26 +30,37 @@ dev0:codigo usuario$ cd nuevo/
 dev0:nuevo usuario$ vim dias.txt
 ```
 
-```
-domingo
-lunes
-martes
-miércoles
-viernes
-sábado
-```
-
 Notamos que falta el jueves, lo agregamos:
 
-```
-domingo
-lunes
-martes
-miércoles
-jueves
-viernes
-sábado
-```
+<table>
+  <tr>
+    <th>original</th>
+    <th>nuevo</th>
+  </tr>
+  <tr>
+    <td>
+      ```
+      domingo
+      lunes
+      martes
+      miércoles
+      viernes
+      sábado
+      ```
+    </td>
+    <td>
+      ```
+      domingo
+      lunes
+      martes
+      miércoles
+      jueves
+      viernes
+      sábado
+      ```
+    </td>
+  </tr>
+</table>
 
 ```console
 dev0:nuevo usuario$ vim meses.txt
@@ -91,36 +102,6 @@ dev0:codigo usuario$
 dev0:codigo usuario$ 
 dev0:codigo usuario$ 
 ```
-<table>
-<tr>
-<th>Json 1</th>
-<th>Markdown</th>
-</tr>
-<tr>
-<td>
-<pre>
-{
-  "id": 1,
-  "username": "joe",
-  "email": "joe@example.com",
-  "order_id": "3544fc0"
-}
-</pre>
-</td>
-<td>
-
-```json
-{
-  "id": 5,
-  "username": "mary",
-  "email": "mary@example.com",
-  "order_id": "f7177da"
-}
-```
-
-</td>
-</tr>
-</table>
 
 
 ### El repositorio git
