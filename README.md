@@ -32,12 +32,12 @@ dev0:codigo usuario$ vim dias.txt
 
 Notamos que falta un día, lo agregamos:
 
-```
+```diff
 domingo
 lunes
 martes
 miércoles
-`*`jueves`*`
++ jueves
 viernes
 sábado
 ```
