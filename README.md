@@ -39,6 +39,7 @@ Notamos que falta el jueves, lo agregamos:
   </tr>
   <tr>
     <td>
+
       ```
       domingo
       lunes
@@ -47,8 +48,10 @@ Notamos que falta el jueves, lo agregamos:
       viernes
       sábado
       ```
+
     </td>
     <td>
+
       ```
       domingo
       lunes
@@ -58,6 +61,7 @@ Notamos que falta el jueves, lo agregamos:
       viernes
       sábado
       ```
+
     </td>
   </tr>
 </table>
