@@ -780,22 +780,22 @@ dejar el panqueque reposando en una grilla
     </td>
     <td>
       <pre>
-&#35; Panqueques (entre 9 y 12 unidades)
+<b>&#35; Panqueques (entre 9 y 12 unidades)</b>
 
-&#35;&#35; Ingredientes:
- &#45; huevo, 1 unidad
- &#45; leche, 1 taza
- &#45; harina, 1 taza
- &#45; azúcar o sal, a gusto
- &#45; manteca derretida, una cucharada
-
-&#35;&#35; Preparación:
- &#45; batir el huevo y la leche
- &#45; incorporar la harina
- &#45; incorporar el azúcar o la sal
- &#45; incorporar la manteca derretida
- &#45; cocinar de ambos lados en sartén antiadherente
- &#45; dejar el panqueque reposando en una grilla
+<b>&#35;&#35; Ingredientes:</b>
+<b>&#45; huevo, 1 unidad</b>
+<b>&#45; leche, 1 taza</b>
+<b>&#45; harina, 1 taza</b>
+<b>&#45; azúcar o sal, a gusto</b>
+<b>&#45; manteca derretida, una cucharada</b>
+<b>
+<b>&#35;&#35; Preparación:</b>
+<b>&#45; batir el huevo y la leche</b>
+<b>&#45; incorporar la harina</b>
+<b>&#45; incorporar el azúcar o la sal</b>
+<b>&#45; incorporar la manteca derretida</b>
+<b>&#45; cocinar de ambos lados en sartén antiadherente</b>
+<b>&#45; dejar el panqueque reposando en una grilla</b>
       </pre>
     </td>
   </tr>
