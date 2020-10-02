@@ -567,7 +567,7 @@ cocinar de ambos lados en sartén antiadherente
   </tr>
 </table>
 
-Vemos nuevamente que Git detecta que cambiamos el contenido del directorio de trabajo:
+Vemos nuevamente que Git detecta el nuevo cambio:
 
 ```console
 dev0:recetario usuario$ git status
@@ -673,7 +673,7 @@ do so (now or later) by using -b with the checkout command again. Example:
 
   git checkout -b <new-branch-name>
 
-  HEAD is now at f79c6f7... 1
+  HEAD is now at 0f2d91b... 1
 dev0:recetario usuario$ 
 ```
 
@@ -681,21 +681,135 @@ No es necesario pasar los 40 caracteres de código hash al comando. Git interpre
 
 El comando anterior podría haberse escrito: `git checkout 0f2d`.
 
-El nuevo contenido del directorio de trabajo refleja el del momento de aplicación de ese commit, pero Git advierte estar en estado de *detached HEAD*.
+El nuevo contenido del directorio de trabajo refleja el resultado de ese commit, pero Git advierte estar en estado de *detached HEAD*.
 
-`HEAD` es una referencia que indica el punto de partida del directorio de trabajo. Normalmente refiere simbólicamente a `refs/heads/master`, o sea, *el último commit del branch master*. 
+`HEAD` es una referencia que indica el punto de partida, o *base* del directorio de trabajo. Normalmente refiere simbólicamente a `refs/heads/master`, o sea, *el último commit del branch master*. 
+
+Git se vale de esa referencia para saber qué cosas cambiaron y a partir de dónde, o dicho de otro modo, cuándo es que un directorio de trabajo se considera "limpio".
 
 Al ejecutar `git checkout 0f2d`, Git computa el contenido del código fuente, lo reemplaza y reapunta la referencia `HEAD` a ese commit.
-Esta advertencia es relevante porque el punto de partida referenciado por `HEAD` deja de ser móvil, y los commits adicionales que se agreguen no pueden ser trackeados.
+Esta advertencia es relevante porque el punto de partida referenciado por `HEAD` deja de ser móvil, con lo cual agregar nuevos commits equivale a trabajar con un branch sin nombre, solamente referenciable por el hash de su último commit.
 
-Posicionar el `HEAD` en un commit específico es útil para crear una rama a partir de ese punto.
+Posicionar el `HEAD` en un commit específico es útil para consultar el estado de la fuente en ese instante o para crear una rama a partir de ese punto específico.
+
+Regresemos el `HEAD` al branch `master`:
+
+```console
+dev0:recetario usuario$ git checkout master
+Previous HEAD position was 0f2d91b... Nueva receta de panqueques
+Switched to branch 'master'
+dev0:recetario usuario$ 
+```
+Y creemos un branch para aislar algún conjunto de cambios, por ejemplo, la migración del recetario al formato Markdown.
+De esta manera, podemos concentrarnos en migrar solamente lo escrito hasta el commit actual, mientras en el branch `master` seguimos agregando recetas nuevas o detalles a las existentes sin miedo a interferir con la migración.
+
+```console
+dev0:recetario usuario$ git branch migra-markdown
+dev0:recetario usuario$ git checkout migra-markdown
+Switched to branch 'migra-markdown'
+dev0:recetario usuario$ 
+```
+
+Crear un nuevo branch no impacta sobre el historial, solamente se trata de la creación de una nueva referencia.
+
+La ejecución posterior del subcomando `git checkout`, reapunta la referencia `HEAD` a la nueva referencia simbólica `refs/heads/migra-markdown`, o sea, una referencia móvil que cambia su valor a medida que se apilan commits.
+
+<p align="center"> 
+  <img width="288" height="288" src="wd.repo.panqueques.svg">
+</p>
+
+En esta nueva rama tenemos la tranquilidad de focalizarnos en cambiar de formato sin preocuparnos por los cambios en paralelo. Si la evolución que toma cada rama deviene en un conflicto, la resolución se toma en otra instancia.
+
+```console
+dev0:recetario usuario$ ls
+panqueques.txt
+dev0:recetario usuario$ git mv panqueques.txt panqueques.md
+dev0:recetario usuario$ ls
+panqueques.md
+dev0:recetario usuario$ git status
+On branch migra-markdown
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        renamed:    panqueques.txt -> panqueques.md
+
+dev0:recetario usuario$
+```
+
+El subcomando `git mv` es similar al comando básico `mv` de Bash, que mueve o renombra un archivo o directorio, con la diferencia de que en Git esa operación queda registrada de manera tal que se preserva la historia.
+
+```console
+dev0:recetario usuario$ odev0:recetario usuario$ git commit -m "Renombre txt a md"
+[migra-markdown bedfafd] Renombre txt a md
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename panqueques.txt => panqueques.md (100%)
+dev0:recetario usuario$ 
+```
+
+Comenzamos a cambiar el formato:
+
+<table>
+  <tr>
+    <th>original</th>
+    <th>nuevo</th>
+  </tr>
+  <tr>
+    <td>
+      <pre>
+Panqueques (entre 9 y 12 unidades)
+
+Ingredientes:
+huevo, 1 unidad
+leche, 1 taza
+harina, 1 taza
+azúcar o sal, a gusto
+manteca derretida, una cucharada
+
+Preparación:
+batir el huevo y la leche
+incorporar la harina
+incorporar el azúcar o la sal
+incorporar la manteca derretida
+cocinar de ambos lados en sartén antiadherente
+dejar el panqueque reposando en una grilla
+      </pre>
+    </td>
+    <td>
+      <pre>
+# Panqueques (entre 9 y 12 unidades)
+
+## Ingredientes:
+ - huevo, 1 unidad
+ - leche, 1 taza
+ - harina, 1 taza
+ - azúcar o sal, a gusto
+ - manteca derretida, una cucharada
+
+## Preparación:
+ - batir el huevo y la leche
+ - incorporar la harina
+ - incorporar el azúcar o la sal
+ - incorporar la manteca derretida
+ - cocinar de ambos lados en sartén antiadherente
+ - dejar el panqueque reposando en una grilla
+      </pre>
+    </td>
+  </tr>
+</table>
+
 
 ```console
 dev0:recetario usuario$ 
 dev0:recetario usuario$ 
+```
+```console
+dev0:recetario usuario$ 
 dev0:recetario usuario$ 
 ```
-
+```console
+dev0:recetario usuario$ 
+dev0:recetario usuario$ 
+```
 ```console
 dev0:recetario usuario$ 
 dev0:recetario usuario$ 
