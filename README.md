@@ -692,6 +692,8 @@ Esta advertencia es relevante porque el punto de partida referenciado por `HEAD`
 
 Posicionar el `HEAD` en un commit específico es útil para consultar el estado de la fuente en ese instante o para crear una rama a partir de ese punto específico.
 
+## Ramas
+
 Regresemos el `HEAD` al branch `master`:
 
 ```console
@@ -869,6 +871,87 @@ dejar el panqueque reposando en una grilla
 </table>
 
 ```console
+dev0:recetario usuario$ git add panqueques.txt 
+dev0:recetario usuario$ git commit -m "Actualizo panqueques: apilar en el plato"
+[master 35ad200] Actualizo panqueques: apilar en el plato
+ 1 file changed, 1 insertion(+)
+dev0:recetario usuario$
+```
+
+Desde la perspectiva de `master`, el historial muestra los cambios relevantes:
+
+```console
+dev0:recetario usuario$ git --no-pager log --oneline
+35ad200 Actualizo panqueques: apilar en el plato
+398e592 Actualizo receta de panqueques
+0f2d91b Nueva receta de panqueques
+dev0:recetario usuario$
+```
+Para ver el historial completo, en orden cronológico, tenemos que agregar la opción `--all`:
+
+```console
+dev0:recetario usuario$ git --no-pager log --oneline --all
+35ad200 Actualizo panqueques: apilar en el plato
+bc7849d Conversión a formato Markdown
+bedfafd Renombre txt a md
+398e592 Actualizo receta de panqueques
+0f2d91b Nueva receta de panqueques
+dev0:recetario usuario$
+```
+Podemos además darle el contexto del lugar que ocupa cada commit en cada rama con la opción `--graph`:
+
+```console
+dev0:recetario usuario$ git --no-pager log --oneline --all --graph
+* 35ad200 Actualizo panqueques: apilar en el plato
+| * bc7849d Conversión a formato Markdown
+| * bedfafd Renombre txt a md
+|/
+* 398e592 Actualizo receta de panqueques
+* 0f2d91b Nueva receta de panqueques
+dev0:recetario usuario$
+```
+
+## Merges
+
+El procedimiento para incorporar los cambios del branch `migra-markdown` al branch `master` es básicamente así:
+
+```console
+dev0:recetario usuario$ git merge migra-markdown
+```
+En este momento, Git lanza un editor para componer un mensaje de commit. No es un mensaje común, sino que se supone que explica la naturaleza del merge.
+
+Guardando el contenido y saliendo (con el editor `nano` se hace con <kbd>CTRL</kbd>+<kbd>O</kbd> seguido de <kbd>CTRL</kbd>+<kbd>X</kbd>), el merge se completa:
+
+```console
+dev0:recetario usuario$ git merge migra-markdown
+Auto-merging panqueques.md
+Merge made by the 'recursive' strategy.
+ panqueques.txt => panqueques.md | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+ rename panqueques.txt => panqueques.md (82%)
+dev0:recetario usuario$ 
+```
+
+En el historial, el commit del merge queda así representado:
+
+```console
+dev0:recetario usuario$ git --no-pager log --oneline --all --graph 
+*   a30d4e0 Merge branch 'migra-markdown'
+|\
+| * bc7849d Conversión a formato Markdown
+| * bedfafd Renombre txt a md
+* | 35ad200 Actualizo panqueques: apilar en el plato
+|/
+* 398e592 Actualizo receta de panqueques
+* 0f2d91b Nueva receta de panqueques
+dev0:recetario usuario$
+```
+
+En este caso de merge, Git cuenta con el contexto necesario para
+
+
+
+```console
 dev0:recetario usuario$ 
 dev0:recetario usuario$ 
 ```
@@ -876,4 +959,23 @@ dev0:recetario usuario$
 dev0:recetario usuario$ 
 dev0:recetario usuario$ 
 ```
-
+```console
+dev0:recetario usuario$ 
+dev0:recetario usuario$ 
+```
+```console
+dev0:recetario usuario$ 
+dev0:recetario usuario$ 
+```
+```console
+dev0:recetario usuario$ 
+dev0:recetario usuario$ 
+```
+```console
+dev0:recetario usuario$ 
+dev0:recetario usuario$ 
+```
+```console
+dev0:recetario usuario$ 
+dev0:recetario usuario$ 
+```
