@@ -739,7 +739,7 @@ dev0:recetario usuario$
 El subcomando `git mv` es similar al comando básico `mv` de Bash, que mueve o renombra un archivo o directorio, con la diferencia de que en Git esa operación queda registrada de manera tal que se preserva la historia.
 
 ```console
-dev0:recetario usuario$ odev0:recetario usuario$ git commit -m "Renombre txt a md"
+dev0:recetario usuario$ git commit -m "Renombre txt a md"
 [migra-markdown bedfafd] Renombre txt a md
  1 file changed, 0 insertions(+), 0 deletions(-)
  rename panqueques.txt => panqueques.md (100%)
@@ -747,6 +747,10 @@ dev0:recetario usuario$
 ```
 
 Comenzamos a cambiar el formato:
+
+```console
+dev0:recetario usuario$ vim panqueques.md
+```
 
 <table>
   <tr>
@@ -776,7 +780,7 @@ dejar el panqueque reposando en una grilla
     </td>
     <td>
       <pre>
-&#35;Panqueques (entre 9 y 12 unidades)
+&#35; Panqueques (entre 9 y 12 unidades)
 
 &#35;&#35; Ingredientes:
  &#45; huevo, 1 unidad
@@ -797,15 +801,73 @@ dejar el panqueque reposando en una grilla
   </tr>
 </table>
 
+```console
+dev0:recetario usuario$ git add panqueques.md
+dev0:recetario usuario$ git commit -m "Conversión a formato Markdown"
+[migra-markdown bc7849d] Conversión a formato Markdown
+ 1 file changed, 16 insertions(+), 16 deletions(-)
+ rewrite panqueques.md (99%)
+dev0:recetario usuario$ 
+```
+Paralelamente, podemos evolucionar la receta en el branch `master`:
 
 ```console
-dev0:recetario usuario$ 
-dev0:recetario usuario$ 
+dev0:recetario usuario$ git checkout master
+Switched to branch 'master'
+dev0:recetario usuario$ vim panqueques.txt
 ```
-```console
-dev0:recetario usuario$ 
-dev0:recetario usuario$ 
-```
+Notar que en este branch no renombramos el archivo.
+
+<table>
+  <tr>
+    <th>original</th>
+    <th>nuevo</th>
+  </tr>
+  <tr>
+    <td>
+      <pre>
+Panqueques (entre 9 y 12 unidades)
+
+Ingredientes:
+huevo, 1 unidad
+leche, 1 taza
+harina, 1 taza
+azúcar o sal, a gusto
+manteca derretida, una cucharada
+
+Preparación:
+batir el huevo y la leche
+incorporar la harina
+incorporar el azúcar o la sal
+incorporar la manteca derretida
+cocinar de ambos lados en sartén antiadherente
+dejar el panqueque reposando en una grilla<br />
+      </pre>
+    </td>
+    <td>
+      <pre>
+Panqueques (entre 9 y 12 unidades)
+
+Ingredientes:
+huevo, 1 unidad
+leche, 1 taza
+harina, 1 taza
+azúcar o sal, a gusto
+manteca derretida, una cucharada
+
+Preparación:
+batir el huevo y la leche
+incorporar la harina
+incorporar el azúcar o la sal
+incorporar la manteca derretida
+cocinar de ambos lados en sartén antiadherente
+dejar el panqueque reposando en una grilla
+<b>apilar los panqueques en un plato</b>
+      </pre>
+    </td>
+  </tr>
+</table>
+
 ```console
 dev0:recetario usuario$ 
 dev0:recetario usuario$ 
