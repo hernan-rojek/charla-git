@@ -947,35 +947,5 @@ dev0:recetario usuario$ git --no-pager log --oneline --all --graph
 dev0:recetario usuario$
 ```
 
-En este caso de merge, Git cuenta con el contexto necesario para
+En este caso de merge, Git cuenta con el contexto necesario para unificar los cambios de ambas ramas en el mismo archivo. No siempre es el caso, si Git no cuenta con líneas de texto estáticas en común para tomar como referencia, no puede deducir el orden para aplicar los cambios.
 
-
-
-```console
-dev0:recetario usuario$ 
-dev0:recetario usuario$ 
-```
-```console
-dev0:recetario usuario$ 
-dev0:recetario usuario$ 
-```
-```console
-dev0:recetario usuario$ 
-dev0:recetario usuario$ 
-```
-```console
-dev0:recetario usuario$ 
-dev0:recetario usuario$ 
-```
-```console
-dev0:recetario usuario$ 
-dev0:recetario usuario$ 
-```
-```console
-dev0:recetario usuario$ 
-dev0:recetario usuario$ 
-```
-```console
-dev0:recetario usuario$ 
-dev0:recetario usuario$ 
-```
