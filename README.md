@@ -417,8 +417,6 @@ incorporar la manteca derretida
 cocinar de ambos lados en sartén antiadherente
 ```
 
-<img align="right" width="432" height="432" src="01.touch panqueques.txt.svg" />
-
 El directorio actual, sin considerar el subdirectorio `.git`, almacena lo que Git denomina *working copy*, o copia de trabajo.
 Esta copia es sobre la cual trabajamos, y a partir de la cual Git computa las modificaciones que debe ir acumulando el historial.
 
@@ -438,6 +436,8 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 dev0:recetario usuario$ 
 ```
+
+<img align="right" width="432" height="432" src="01.touch panqueques.txt.svg" />
 
 También podemos consultar el historial, el cual se encuentra vacío:
 
