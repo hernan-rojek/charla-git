@@ -1,3 +1,6 @@
+# Contenidos
+[[_TOC_]]
+
 # Introducción a Control de Versiones con Git
 
 Vamos a ver el uso de Git desde abajo, así entendemos lo que estamos haciendo en vez de memorizar recetas que aplicamos cruzando los dedos y esperando que todo salga bien.
