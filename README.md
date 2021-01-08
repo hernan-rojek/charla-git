@@ -397,8 +397,6 @@ dev0:recetario usuario$ vim panqueques.txt
 
 Podemos redactar una receta más o menos así. No es tan importante, necesitamos un ejemplo que pueda cambiar:
 
-<img align="right" width="288" height="288" src="wd.repo.panqueques.svg" />
-
 ```
 Panqueques (entre 9 y 12 unidades)
 
@@ -621,6 +619,8 @@ Changes to be committed:
         modified:   panqueques.txt
 
 ```
+
+<img width="432" height="432" src="04.add panqueques.txt.svg" />
 
 Lo cual hacemos a continuación:
 
