@@ -397,6 +397,8 @@ dev0:recetario usuario$ vim panqueques.txt
 
 Podemos redactar una receta más o menos así. No es tan importante, necesitamos un ejemplo que pueda cambiar:
 
+<img align="right" width="288" height="288" src="wd.repo.panqueques.svg">
+
 ```
 Panqueques (entre 9 y 12 unidades)
 
@@ -414,9 +416,6 @@ incorporar el azúcar o la sal
 incorporar la manteca derretida
 cocinar de ambos lados en sartén antiadherente
 ```
-<p align="right"> 
-  <img width="288" height="288" src="wd.repo.panqueques.svg">
-</p>
 
 El directorio actual, sin considerar el subdirectorio `.git`, almacena lo que Git denomina *working copy*, o copia de trabajo.
 Esta copia es sobre la cual trabajamos, y a partir de la cual Git computa las modificaciones que debe ir acumulando el historial.
