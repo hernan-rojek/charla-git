@@ -417,6 +417,8 @@ incorporar la manteca derretida
 cocinar de ambos lados en sartén antiadherente
 ```
 
+<img width="432" height="432" src="01.touch panqueques.txt.svg" />
+
 El directorio actual, sin considerar el subdirectorio `.git`, almacena lo que Git denomina *working copy*, o copia de trabajo.
 Esta copia es sobre la cual trabajamos, y a partir de la cual Git computa las modificaciones que debe ir acumulando el historial.
 
@@ -437,8 +439,6 @@ nothing added to commit but untracked files present (use "git add" to track)
 dev0:recetario usuario$ 
 ```
 
-<img width="432" height="432" src="01.touch panqueques.txt.svg" />
-
 También podemos consultar el historial, el cual se encuentra vacío:
 
 ```console
@@ -454,8 +454,6 @@ De esas cadenas de commits se deduce ese concepto de **rama** (*branch*), centra
 Cada commit es un fotograma en la historia de la fuente, y Git nos permite posicionarnos en cualquier punto de esta historia, mientras le indiquemos cual.
 Mediante el subcomando `git add` ponemos a Git al corriente de que existe el archivo `panqueques.txt` agregándolo al índice del repositorio:
 
-<img align="right" width="432" height="432" src="02.add panqueques.txt.svg" />
-
 ```console
 dev0:recetario usuario$ git add panqueques.txt
 dev0:recetario usuario$ git status
@@ -470,6 +468,8 @@ Changes to be committed:
 
 dev0:recetario usuario$ 
 ```
+<img width="432" height="432" src="02.add panqueques.txt.svg" />
+
 
 El índice (*index*) es una estructura de datos que determina en qué difiere la copia de trabajo con el fotograma utilizado como base. Agregar los cambios al índice de seguimiento se lo suele denominar *to stage* (algo así como "preparar", o "poner en escena"), ya que son los cambios que Git compone preliminarmente como nuevo paquete para crear un nuevo commit.
 
