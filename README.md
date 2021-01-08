@@ -383,6 +383,9 @@ Initial commit
 nothing to commit (create/copy files and use "git add" to track)
 dev0:recetario usuario$ 
 ```
+<p align="right"> 
+  <img width="288" height="288" src="00.init.svg">
+</p>
 
 ## Cambios
 
