@@ -384,7 +384,7 @@ nothing to commit (create/copy files and use "git add" to track)
 dev0:recetario usuario$ 
 ```
 <p align="right"> 
-  <img width="576" height="576" src="00.init.svg">
+  <img width="432" height="432" src="00.init.svg">
 </p>
 
 ## Cambios
