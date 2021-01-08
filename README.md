@@ -351,6 +351,10 @@ Initialized empty Git repository in /home/usuario/codigo/recetario/.git/
 dev0:recetario usuario$ 
 ```
 
+<p align="right"> 
+  <img width="432" height="432" src="00.init.svg">
+</p>
+
 Con el subcomando `git init`, se inicializa el estado del repositorio local, almacenado en un directorio llamado `.git` dentro del directorio del proyecto (por convención UNIX, los archivos y directorios cuyos nombres comienzan con `.`, son considerados ocultos).
 Profundizando un poco en la estructura de ese árbol de directorios, podemos apreciar que `git` guarda sus cosas ahí adentro:
 
@@ -383,9 +387,6 @@ Initial commit
 nothing to commit (create/copy files and use "git add" to track)
 dev0:recetario usuario$ 
 ```
-<p align="right"> 
-  <img width="432" height="432" src="00.init.svg">
-</p>
 
 ## Cambios
 
