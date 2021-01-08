@@ -490,6 +490,7 @@ dev0:recetario usuario$ git commit -m "Nueva receta de panqueques"
  create mode 100644 panqueques.txt
 dev0:recetario usuario$ 
 ```
+<img width="432" height="432" src="03.commit.svg" />
 
 Este subcomando requiere un comentario en lenguaje de ser humano para poder facilitar la comprensión de la sucesión de cambios en el log del branch actual.
 Luego de confirmar los últimos cambios, podemos ver que el índice no registra diferencias con respecto al último commit:
