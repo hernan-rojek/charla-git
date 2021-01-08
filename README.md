@@ -436,9 +436,8 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 dev0:recetario usuario$ 
 ```
-<p align="center" >
-  <img width="432" height="432" src="01.touch panqueques.txt.svg" />
-</p>
+
+<img width="432" height="432" src="01.touch panqueques.txt.svg" />
 
 También podemos consultar el historial, el cual se encuentra vacío:
 
@@ -454,6 +453,8 @@ De esas cadenas de commits se deduce ese concepto de **rama** (*branch*), centra
 
 Cada commit es un fotograma en la historia de la fuente, y Git nos permite posicionarnos en cualquier punto de esta historia, mientras le indiquemos cual.
 Mediante el subcomando `git add` ponemos a Git al corriente de que existe el archivo `panqueques.txt` agregándolo al índice del repositorio:
+
+<img align="right" width="432" height="432" src="02.add panqueques.txt.svg" />
 
 ```console
 dev0:recetario usuario$ git add panqueques.txt
