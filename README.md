@@ -436,8 +436,9 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 dev0:recetario usuario$ 
 ```
-
-<img align="center" width="432" height="432" src="01.touch panqueques.txt.svg" />
+<p align="center" >
+  <img width="432" height="432" src="01.touch panqueques.txt.svg" />
+</p>
 
 También podemos consultar el historial, el cual se encuentra vacío:
 
