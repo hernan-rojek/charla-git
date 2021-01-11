@@ -770,6 +770,8 @@ dev0:recetario usuario$ git commit -m "Renombre txt a md"
 dev0:recetario usuario$ 
 ```
 
+<img width="432" height="432" src="10.commit.svg" />
+
 Comenzamos a cambiar el formato:
 
 ```console
