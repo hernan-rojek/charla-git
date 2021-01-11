@@ -733,13 +733,12 @@ Switched to branch 'migra-markdown'
 dev0:recetario usuario$ 
 ```
 
+<img width="432" height="432" src="08.checkout migra-markdown.svg" />
+
 Crear un nuevo branch no impacta sobre el historial, solamente se trata de la creación de una nueva referencia.
 
 La ejecución posterior del subcomando `git checkout`, reapunta la referencia `HEAD` a la nueva referencia simbólica `refs/heads/migra-markdown`, o sea, una referencia móvil que cambia su valor a medida que se apilan commits.
 
-<p align="center"> 
-  <img width="288" height="288" src="wd.repo.panqueques.svg">
-</p>
 
 En esta nueva rama tenemos la tranquilidad de focalizarnos en cambiar de formato sin preocuparnos por los cambios en paralelo. Si la evolución que toma cada rama deviene en un conflicto, la resolución se toma en otra instancia.
 
