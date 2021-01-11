@@ -829,6 +829,12 @@ dejar el panqueque reposando en una grilla
 
 ```console
 dev0:recetario usuario$ git add panqueques.md
+dev0:recetario usuario$ 
+```
+
+<img width="432" height="432" src="11.add panqueques.md.svg" />
+
+```console
 dev0:recetario usuario$ git commit -m "Conversión a formato Markdown"
 [migra-markdown bc7849d] Conversión a formato Markdown
  1 file changed, 16 insertions(+), 16 deletions(-)
