@@ -923,6 +923,8 @@ dev0:recetario usuario$ git commit -m "Actualizo panqueques: apilar en el plato"
 dev0:recetario usuario$
 ```
 
+<img width="432" height="432" src="15.commit.svg" />
+
 Desde la perspectiva de `master`, el historial muestra los cambios relevantes:
 
 ```console
