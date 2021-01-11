@@ -911,6 +911,12 @@ dejar el panqueque reposando en una grilla
 
 ```console
 dev0:recetario usuario$ git add panqueques.txt 
+dev0:recetario usuario$
+```
+
+<img width="432" height="432" src="14.git add panqueques.txt.svg" />
+
+```console
 dev0:recetario usuario$ git commit -m "Actualizo panqueques: apilar en el plato"
 [master 35ad200] Actualizo panqueques: apilar en el plato
  1 file changed, 1 insertion(+)
