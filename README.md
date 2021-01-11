@@ -631,6 +631,8 @@ dev0:recetario usuario$ git commit -m "Actualizo receta de panqueques"
 dev0:recetario usuario$ 
 ```
 
+<img width="432" height="432" src="05.commit.svg" />
+
 Pedir nuevamente el `log` (bitácora de la rama actual) nos muestra la cadena de commits, comenzando desde el más reciente:
 
 ```console
