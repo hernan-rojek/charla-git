@@ -758,6 +758,8 @@ Changes to be committed:
 dev0:recetario usuario$
 ```
 
+<img width="432" height="432" src="09.mv panqueques.txt panqueques.md.svg" />
+
 El subcomando `git mv` es similar al comando básico `mv` de Bash, que mueve o renombra un archivo o directorio, con la diferencia de que en Git esa operación queda registrada de manera tal que se preserva la historia.
 
 ```console
