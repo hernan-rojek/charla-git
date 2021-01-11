@@ -841,6 +841,8 @@ dev0:recetario usuario$ git commit -m "Conversión a formato Markdown"
  rewrite panqueques.md (99%)
 dev0:recetario usuario$ 
 ```
+<img width="432" height="432" src="12.commit.svg" />
+
 Paralelamente, podemos evolucionar la receta en el branch `master`:
 
 ```console
