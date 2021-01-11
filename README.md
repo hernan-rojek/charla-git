@@ -965,6 +965,7 @@ El procedimiento para incorporar los cambios del branch `migra-markdown` al bran
 ```console
 dev0:recetario usuario$ git merge migra-markdown
 ```
+
 En este momento, Git lanza un editor para componer un mensaje de commit. No es un mensaje común, sino que se supone que explica la naturaleza del merge.
 
 Guardando el contenido y saliendo (con el editor `nano` se hace con <kbd>CTRL</kbd>+<kbd>O</kbd> seguido de <kbd>CTRL</kbd>+<kbd>X</kbd>), el merge se completa:
@@ -978,6 +979,8 @@ Merge made by the 'recursive' strategy.
  rename panqueques.txt => panqueques.md (82%)
 dev0:recetario usuario$ 
 ```
+
+<img width="432" height="432" src="16.merge migra-markdown.svg" />
 
 En el historial, el commit del merge queda así representado:
 
