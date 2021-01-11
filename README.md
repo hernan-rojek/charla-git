@@ -694,6 +694,8 @@ El comando anterior podría haberse escrito: `git checkout 0f2d`.
 
 El nuevo contenido del directorio de trabajo refleja el resultado de ese commit, pero Git advierte estar en estado de *detached HEAD*.
 
+<img width="432" height="432" src="06.checkout 0f2d.svg" />
+
 `HEAD` es una referencia que indica el punto de partida, o *base* del directorio de trabajo. Normalmente refiere simbólicamente a `refs/heads/master`, o sea, *el último commit del branch master*. 
 
 Git se vale de esa referencia para saber qué cosas cambiaron y a partir de dónde, o dicho de otro modo, cuándo es que un directorio de trabajo se considera "limpio".
