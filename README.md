@@ -715,11 +715,19 @@ Previous HEAD position was 0f2d91b... Nueva receta de panqueques
 Switched to branch 'master'
 dev0:recetario usuario$ 
 ```
+<img width="432" height="432" src="05.commit.svg" />
+
 Y creemos un branch para aislar algún conjunto de cambios, por ejemplo, la migración del recetario al formato Markdown.
 De esta manera, podemos concentrarnos en migrar solamente lo escrito hasta el commit actual, mientras en el branch `master` seguimos agregando recetas nuevas o detalles a las existentes sin miedo a interferir con la migración.
 
 ```console
 dev0:recetario usuario$ git branch migra-markdown
+dev0:recetario usuario$ 
+```
+
+<img width="432" height="432" src="07.branch migra-markdown.svg" />
+
+```console
 dev0:recetario usuario$ git checkout migra-markdown
 Switched to branch 'migra-markdown'
 dev0:recetario usuario$ 
