@@ -848,8 +848,15 @@ Paralelamente, podemos evolucionar la receta en el branch `master`:
 ```console
 dev0:recetario usuario$ git checkout master
 Switched to branch 'master'
+dev0:recetario usuario$ 
+```
+
+<img width="432" height="432" src="13.checkout master.svg" />
+
+```console
 dev0:recetario usuario$ vim panqueques.txt
 ```
+
 Notar que en este branch no renombramos el archivo.
 
 <table>
